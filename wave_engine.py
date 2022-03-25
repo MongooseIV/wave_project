@@ -12,7 +12,7 @@ class WaveType(Enum):
 def normalize(a, b) -> float:  # changes the hertz value so it is compatible with oled screen size
     return float(b / a)
 
-def toggle_wave(wave: WaveType, u_led: Pin, g_led: Pin) -> WaveType:  # toggles between sine and cosine wave types
+def toggle_wave(wave: WaveType) -> WaveType:  # toggles between sine and cosine wave types
     print(wave)
     if wave == WaveType.SINE:  # when wave is cos, g_led is on
         wave = WaveType.COSINE
@@ -36,6 +36,9 @@ def calculate_wave_point(screen: Size, x: int, hertz: int, wave_type = WaveType.
     normalized_x = x * normalize(screen.WIDTH, hertz_as_degrees)  # adjusts for small oled screen
     rads_x = math.radians(normalized_x)  # turns degrees into radians
 
+    print(wave_type)
+
+    # TODO: this broke asf
     if wave_type == WaveType.SINE:
         y = int(math.sin(rads_x) * (screen.HEIGHT / 2))  # sets y value to sin output
 

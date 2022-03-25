@@ -35,11 +35,12 @@ class OledDisplay(Display):
 
 		self.wave_type = WaveType.SINE # default wave type
 	
-		def toggle_wave_led():
-			if wave_engine.toggle_wave() == WaveType.SINE:
+		def toggle_wave_led(wave_type: WaveType):
+			if wave_engine.toggle_wave(wave_type) == WaveType.SINE:
 				u_led.value(1)
 				g_led.value(0)
-			elif wave_engine.toggle_wave() == WaveType.COSINE:
+
+			elif wave_engine.toggle_wave(wave_type) == WaveType.COSINE:
 				u_led.value(0)
 				g_led.value(1)
 
