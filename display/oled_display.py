@@ -1,4 +1,4 @@
-from display.screen import Size, Display
+from screen import Size, Display
 
 # imports
 from machine import Pin, I2C, ADC, PWM
