@@ -9,4 +9,4 @@ from wave_engine import WaveType
 display = TurtleDisplay( Size(128, 32), 12 )
 
 while True:
-    display.draw()
+	display.draw()
