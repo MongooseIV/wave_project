@@ -1,5 +1,5 @@
 import math
-from screen import Size
+from display.screen import Size
 from wave_engine import WaveTypes
 from machine import Pin
 

@@ -8,8 +8,8 @@ class Size:
         self.HEIGHT = HEIGHT
 
 class Display:
-    def __init__(self, size: Size):
-        self.screen_size = size
+    def __init__(self, screen: Size):
+        self.screen = screen
 
-    def draw() -> None: # displays need a way to display
+    def draw(self) -> None: # displays need a way to display
         pass
