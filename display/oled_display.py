@@ -33,19 +33,21 @@ class OledDisplay(Display):
         g_led.value(0)
         u_led.value(1)
 
-        wave_type = WaveType.SINE # default wave type
+        self.wave_type = WaveType.SINE # default wave type
+    
 
     def draw(self, screen: Size) -> None:
         for x in range(0, screen.WIDTH):
             if self.button.value():  # checks if the button is pressed
-                wave_type = wave_engine.toggle_wave(wave_type)  # switches the type of wave
+                self.wave_type = wave_engine.toggle_wave(self.wave_type)  # switches the type of wave
                 sleep(0.5)
+
             hertz = round((self.adc.read_u16() / 2340.53571429))  # turns the potentiometer output into 2-28 hertz
             # TODO: get rid of magic number. u16 is the 655189 number or something i forgot 
 
             hertz = 2 if hertz < 2 else hertz # minimum hz value. should go from 2-28. i forgot why - ssohbn
 
-            y = wave_engine.calculate_wave_point(screen, x, hertz, wave_type=wave_type)
+            y = wave_engine.calculate_wave_point(screen, x, hertz, wave_type=self.wave_type)
 
             self.oled.pixel(x, y + 16, 1)  # draws waave
             self.oled.show()

@@ -1,6 +1,5 @@
 from turtle import width
 
-
 class Size:
     """ datatype to group width and height together """
     def __init__(self, WIDTH: int, HEIGHT: int):
