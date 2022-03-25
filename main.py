@@ -8,7 +8,7 @@ from wave_engine import WaveType
 # group width and height
 
 # display = OledDisplay (Size(128, 32) )
-display = TurtleDisplay( Size(500, 300), 18, -400 )
+display = TurtleDisplay( Size(128, 32), 18, -400 )
 
 def draw_thingy(hz: int):
 	sleep(0.05)
