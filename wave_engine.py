@@ -1,6 +1,5 @@
 import math
 from display.screen import Size
-from machine import Pin
 
 from enum import Enum
 
@@ -17,12 +16,8 @@ def toggle_wave(wave: WaveType, u_led: Pin, g_led: Pin) -> WaveType:  # toggles 
     print(wave)
     if wave == WaveType.SINE:  # when wave is cos, g_led is on
         wave = WaveType.COSINE
-        u_led.value(0)
-        g_led.value(1)
     elif wave == WaveType.COSINE:  # when wave is sin, u_led is on
         wave = WaveType.SINE
-        u_led.value(1)
-        g_led.value(0)
     return wave  # returns the correct value
 
 def calculate_wave_point(screen: Size, x: int, hertz: int, wave_type = WaveType.SINE) -> int:

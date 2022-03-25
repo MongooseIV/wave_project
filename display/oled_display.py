@@ -35,11 +35,18 @@ class OledDisplay(Display):
 
 		self.wave_type = WaveType.SINE # default wave type
 	
+		def toggle_wave_led():
+			if wave_engine.toggle_wave() == WaveType.SINE:
+				u_led.value(1)
+				g_led.value(0)
+			elif wave_engine.toggle_wave() == WaveType.COSINE:
+				u_led.value(0)
+				g_led.value(1)
 
 		def draw(self, screen: Size) -> None:
 			for x in range(0, screen.WIDTH):
 				if self.button.value():  # checks if the button is pressed
-					self.wave_type = wave_engine.toggle_wave(self.wave_type)  # switches the type of wave
+					self.wave_type = toggle_wave_led(self.wave_type)  # switches the type of wave
 					sleep(0.5)
 
 				hertz = round((self.adc.read_u16() / 2340.53571429))  # turns the potentiometer output into 2-28 hertz
