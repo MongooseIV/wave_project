@@ -1,4 +1,4 @@
-from display.oled_display import OledDisplay # TODO: apparently i dont understand how modules work in python
+# from display.oled_display import OledDisplay # TODO: apparently i dont understand how modules work in python
 from display.turtle_display import TurtleDisplay
 
 from display.screen import Size

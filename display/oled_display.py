@@ -1,6 +1,6 @@
-from screen import Size, Display
 
 # imports
+from display.screen import Display, Size
 from machine import Pin, I2C, ADC, PWM
 from ssd1306 import SSD1306_I2C
 import math
