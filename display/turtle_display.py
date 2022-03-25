@@ -16,6 +16,6 @@ class TurtleDisplay(Display):
             hertz = 2 if hertz < 2 else hertz # minimum hz value. should go from 2-28. i forgot why - ssohbn
             y = wave_engine.calculate_wave_point(self.screen, x, self.hertz, wave_type=WaveType)
 
-        print(x, y)
+        print(f"x: {x}, y: {y}")
         self.turtle.goto(x-100, y)
         self.turtle.pendown()
