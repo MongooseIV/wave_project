@@ -8,7 +8,6 @@ from wave_engine import WaveType
 
 # display = OledDisplay (Size(128, 32) )
 display = TurtleDisplay( Size(640, 300), 18, -400 )
-
 def draw_thingy(hz: int):
 	display.hertz = hz
 	display.draw()
